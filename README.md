@@ -1,5 +1,7 @@
 # Tramp Selector
 
+(Tramp is Kiwi for Hike!)
+
 [View this website's Moqups page.](https://app.moqups.com/ILr7RrxIwA/view/page/aa9df7b72)
 
 An initial scoping run at an app that filters hikes by weather, difficulty, and technical skill requirements.
