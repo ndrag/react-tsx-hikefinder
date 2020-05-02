@@ -1,6 +1,26 @@
-$theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
-);
+$font-stack: Helvetica, sans-serif; // Set a default font var we can attach to our boy.
+$background-color: #add58f;
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss'; // CSS imports are in the app.scss file. Remove this to get rid of Bootstrap.
+body {
+    margin: 0;
+    font-family: $font-stack;
+}
+
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: $background-color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 5vmin);
+    color: white;
+    padding: 20px;
+}
+
+// import '../../../node_modules/bootstrap/scss/bootstrap.scss'; // CSS imports are in the app.scss file. Remove this to get rid of Bootstrap.
 // Note that app.scss is imported by index.tsx - that's where we tell Webpack this is a dependency of our project. When it reaches this file it adds app.scss to the dependency tree and then adds bootstrap.scss, which we're importing with scss syntax.
