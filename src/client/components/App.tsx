@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
+class App extends React.Component<IAppProps, IAppState> { // React.Component<P, S> - Because this is typescript, we must define the interface we expect our props and state inputs to adhere to. Typescript = more boilerplate - here's a good example :)
+	constructor(props: IAppProps) { // The props object required by this constructor MUST match the spec specified in the interface below - note that there's no spec there yet, just a name!
 		super(props);
 		this.state = {
 			skills: [] // Skills is initialised as an empty array we'll fill with a list of DB elements. Note that we've declared is as part of our IAppState interface below.
 		};
 	}
 
-	async componentDidMount() {
+	async componentDidMount() { // Run this code as soon as our component mounts.
 		try {
 			let r = await fetch('/api/tramps'); // Aysnc call to our local server.
 			let skills = await r.json(); // unpack the json response to the skills var.
@@ -18,7 +18,7 @@ class App extends React.Component<IAppProps, IAppState> {
 		}
 	}
 
-	render() {
+	render() { // Default render function - the JSX to render and display when the App class component is added to the site.
 		return (
 			<main className="container my-5">
 				<h1 className="text-primary text-center">My Applet</h1>
