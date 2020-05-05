@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import Header from './Header';
 
+import api_root from '../env-vars';
+
 // React components can be functional (display only before hooks were added) or class-based (extend the React component class, state-enabled). Here we're declaring an instance of the latter.
 class App extends React.Component<IAppProps, IAppState> { // React.Component<P, S> - Because this is typescript, we must define the interface we expect our props and state inputs to adhere to. Typescript = more boilerplate - here's a good example :)
 	constructor(props: IAppProps) { // The props object required by this constructor MUST match the spec specified in the interface below - note that there's no spec there yet, just a name!
@@ -13,7 +15,7 @@ class App extends React.Component<IAppProps, IAppState> { // React.Component<P, 
 
 	async componentDidMount() { // Run this code as soon as our component mounts.
 		try {
-			let r = await fetch('/api/tramps'); // Aysnc call to our local server.
+			let r = await fetch(`${api_root}/api/tramps`); // Aysnc call to our local server.
 			let tramps = await r.json(); // unpack the json response to the skills var.
 			this.setState({ tramps }); // We use a setState function not unlike that provided by the useState hook. Already very clear how useful that'll be in future!
 		} catch (error) {

@@ -1,5 +1,5 @@
 import * as mysql from 'mysql';
-import config from '../config';
+import config from '../env-vars';
 
 import Tramps from './tramps';
 

@@ -60,7 +60,10 @@ const clientConfig = {
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public/js')
-    }
+    },
+    node: {
+        fs: 'empty'
+    },
 };
 
 module.exports = [serverConfig, clientConfig];

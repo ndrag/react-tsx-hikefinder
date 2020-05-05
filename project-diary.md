@@ -30,3 +30,4 @@ A very basic diary with daily progress notes against my first Typescript, React,
 
 * That's it then! A bit of work and a solution that isn't ideal, particularly in terms of CI/CD - I'll need to smarted up the Heroku deployment process, at the very least - but it does the job; my API breathes!
 
+* Realised I'd need to create env vars for the API endpoint itself. Added.
