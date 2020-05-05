@@ -4,7 +4,7 @@ A very basic diary with daily progress notes against my first Typescript, React,
 
 ## 02/05/2020
 
-* I began by researching cpanel & node integration again. it looks like it's workable if I can SSH in, but it might still be a pain! Give it a go, it'll be much better learning than jumping straight to Heroku or similar. There are easier, more modern options for sure, but they're a bit too streamlined for the sort of learning I'm looking for...
+* I began by researching cpanel & node integration again. it looks like it's workable if I can SSH in, but it might still be a pain! Give it a go, it'll be much better learning than jumping straight to Heroku or similar. There are easier, more modern options for sure, but they're a bit too streamlined for the sort of learning I'm looking for... Had a go at PuTTY for the SSH component.
 
 * Refactored the template I'm using for Penzy's site. I'll now be using the client/server folder setup that the MySQL demo used, as the initial template is locked into a simpler structure. I could refactor webpack to deal with a new folder structure, but that would mean ejecting and spending a good while figuring out the nuances of that technology - a rabbit hole worth avoiding for the moment.
 
