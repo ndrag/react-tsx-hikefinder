@@ -4,6 +4,12 @@ import DB from './db';
 
 const router = express.Router();
 
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", ["https://ndragunow.nz", "http://ndragunow.nz"]); // TODO: Move to a config file.
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 router.get('/api/hello', (req, res, next) => {
     res.json('World');
 });
