@@ -34,6 +34,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.3"
   }
