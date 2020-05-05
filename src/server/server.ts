@@ -3,6 +3,7 @@ import apiRouter from './routes';
 
 const app = express();
 
+app.enable('trust proxy');
 app.use(express.static('public'));
 app.use(apiRouter);
 

@@ -5,7 +5,10 @@ import DB from './db';
 const router = express.Router();
 
 router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", `${req.protocol}://ndragunow.nz`); // TODO: Move to a config file.
+    // const protocol = req.secure ? 'https' : 'http'
+    const protocol = req.headers.referer.split(":")[0]; // The least ideal option, but all of the correct ones (req.secure, req.protocol, etc.) fail to correctly identify either HTTP or HTTPS requests from ndragunow.nz. Suspect this is the result of the reverse proxy sending forwarding on my requests.
+    console.log(protocol)
+    res.header("Access-Control-Allow-Origin", `${protocol}://ndragunow.nz`); // TODO: Move to a config file.
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
