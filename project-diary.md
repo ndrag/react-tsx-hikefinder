@@ -13,3 +13,20 @@ A very basic diary with daily progress notes against my first Typescript, React,
 * Looked into webpack a bit too - the webpack config files in the MySQL intergation template are an asset because they're very readable and make it clear how everything's compiled. Moved some components and made new ones; migrating the demo components from the old project to the new one. Realised it's all a very simple tree structure, really. Imports and dependencies reduce down to a navigable tree that Typescript can parse & traverse.
 
 * Looked into SASS - there's got to be a bit around how sass should be structured; it's clearly not just one file. Presumably a main or index.scss that contain references to everything, and that's imported by app.tsx or index.tsx. Clearly need an overwrite file for each lib (bootstrap etc), a core settings file where I declare $vars (much like a gobal config) and a page-specific (although it's a single page app...) generic scss file for class styling.
+
+## 05/05/2020
+
+* The goal today was to organise hosting for the API. Attempts to get Node.js up and running on CPanel failed - an SSH attempt gave me the following message: 'Sorry, SSH access isn't enabled for your account! Contact customer support to enable it.'. I was informed by customer support that SSH is actually disabled for everyone, with no wriggle room. There goes that plan...
+
+* Began looking at alternatives. Moving my entire domain to an SSH/Node friendly provider makes sense, but there's overhead there I'd rather put towards something useful. Instead I compared a set of cloud-based hosts and settled on Heroku, which looked cheap (free at first), modern, and theoretically easy to set up. It would also enable me to host future Django and Flask projects I have planned.
+
+* Unfortunately, deploying to a Heroku project or repository involves Git and a custom build process. This would be easy to set up if my server were in its own repo, but it isn't - the bundled build process completely threw the Heroku CLI loader.
+
+* For now, I've added a package.json and Procfile to the dist folder, and set that up as Heroku-only (no GitHub integration) git repo. Once the build is completed in the parent directory, a basic Git workflow in ./dist allows for the successful 'build' and deployment of our pre-generated server.js file.
+
+* This required a new solution for secrets (database connection strings, largely), which had previously been stored in an untracked local config file. Heroku supports environment variables against a project, so I decided to use that system in production and discovered the 'dotenv' package for local development. This required two things: importing the library in my local environment only (because it's a dev dependency and would error out in production), and ensuring TypeScript played nice with the imported .env variables. The first was solved with a new Heroku-based 'environment' variable, and the second by casting the implicitly string 'port' variable to a number.
+
+* Note that environment variables are no longer considered best form, but given Heroku's support of that system it seemed to make the most sense for a project of this size & importance.
+
+* That's it then! A bit of work and a solution that isn't ideal, particularly in terms of CI/CD - I'll need to smarted up the Heroku deployment process, at the very least - but it does the job; my API breathes!
+
